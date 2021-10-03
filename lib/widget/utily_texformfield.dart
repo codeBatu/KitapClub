@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class TexFormField {
-  Container utilyTextFormField(String labelText, bool scure) {
+  Container utilyTextFormField(TextEditingController textController, labelText,
+      bool scure, IconData icon) {
     return Container(
       decoration: BoxDecoration(
         color: Colors.grey[200],
@@ -11,8 +12,10 @@ class TexFormField {
         ),
       ),
       child: TextFormField(
+        controller: textController,
         obscureText: scure,
         decoration: InputDecoration(
+          prefixIcon: Icon(icon),
           border: InputBorder.none,
           hintText: labelText,
           labelText: labelText,

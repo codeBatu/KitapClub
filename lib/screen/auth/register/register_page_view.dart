@@ -1,5 +1,5 @@
 import 'package:bookclub/core/compnet/constant.dart';
-import 'package:bookclub/widget/logo.dart';
+
 import 'package:bookclub/widget/utily_button.dart';
 import 'package:bookclub/widget/utily_texformfield.dart';
 import 'package:flutter/cupertino.dart';
@@ -39,28 +39,49 @@ class _RegisterPageViewState extends State<RegisterPageView> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          TexFormField()
-                              .utilyTextFormField(TextName.kAdi, false),
+                          TexFormField().utilyTextFormField(
+                              TextName.userTextEditingController,
+                              TextName.kAdi,
+                              false,
+                              Icons.person),
                           const SizedBox(
                             height: 20,
                           ),
-                          TexFormField()
-                              .utilyTextFormField(TextName.mail, false),
+                          TexFormField().utilyTextFormField(
+                              TextName.emailTextEditingController,
+                              TextName.mail,
+                              false,
+                              Icons.alternate_email),
                           const SizedBox(
                             height: 20,
                           ),
-                          TexFormField().utilyTextFormField(TextName.pwd, true),
+                          TexFormField().utilyTextFormField(
+                              TextName.passwordTextEditingController,
+                              TextName.pwd,
+                              true,
+                              Icons.lock),
                           const SizedBox(
                             height: 20,
                           ),
-                          TexFormField().utilyTextFormField(TextName.pwd, true),
+                          TexFormField().utilyTextFormField(
+                              TextName.confirmPasswordTextEditingController,
+                              TextName.pwd,
+                              true,
+                              Icons.lock),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               const SizedBox(
                                 width: 20,
                               ),
-                              Button().utilButton(TextName.register, context)
+                              Button().singUpButton(
+                                  context,
+                                  TextName.register,
+                                  TextName.userTextEditingController,
+                                  TextName.emailTextEditingController,
+                                  TextName.passwordTextEditingController,
+                                  TextName
+                                      .confirmPasswordTextEditingController),
                             ],
                           )
                         ],

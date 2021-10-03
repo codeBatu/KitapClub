@@ -46,16 +46,27 @@ class _LoginPageViewState extends State<LoginPageView> {
                           //       fontSize: 35,
                           //     ),
                           //   ),
-                          TexFormField()
-                              .utilyTextFormField(TextName.mail, false),
+                          TexFormField().utilyTextFormField(
+                              TextName.emailTextEditingController,
+                              TextName.mail,
+                              false,
+                              Icons.alternate_email),
                           const SizedBox(
                             height: 20,
                           ),
-                          TexFormField().utilyTextFormField(TextName.pwd, true),
+                          TexFormField().utilyTextFormField(
+                              TextName.passwordTextEditingController,
+                              TextName.pwd,
+                              true,
+                              Icons.lock),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              Button().utilButton(TextName.login, context),
+                              Button().loginButton(
+                                  context,
+                                  TextName.login,
+                                  TextName.emailTextEditingController,
+                                  TextName.passwordTextEditingController),
                               const SizedBox(
                                 width: 20,
                               ),
