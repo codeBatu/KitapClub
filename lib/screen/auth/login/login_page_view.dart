@@ -70,9 +70,10 @@ class _LoginPageViewState extends State<LoginPageView> {
                               const SizedBox(
                                 width: 20,
                               ),
-                              Button().utilButton(TextName.register, context)
+                              Button().utilButton(TextName.register, context),
                             ],
-                          )
+                          ),
+                          Button().googleButton(context, "Google İle Giriş"),
                         ],
                       ),
                     ),

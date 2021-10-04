@@ -56,6 +56,17 @@ class Button {
     );
   }
 
+  MaterialButton googleButton(BuildContext context, String bName) {
+    return MaterialButton(
+        color: Colors.grey,
+        child: Text(bName),
+        onPressed: () {
+          CurrentStates _currentstate =
+              Provider.of<CurrentStates>(context, listen: false);
+          _currentstate.loginWithGoole();
+        });
+  }
+
   MaterialButton singUpButton(
       BuildContext context,
       String bName,
@@ -100,11 +111,12 @@ class Button {
                     CurrentStates _currentstate =
                         Provider.of<CurrentStates>(context, listen: false);
                     try {
-                      _currentstate.singUpUser(email.text, password.text);
-                      userName.text = "";
-                      email.text = "";
-                      password.text = "";
-                      confirmPassword.text = "";
+                      _currentstate.singUpUser(
+                          email.text, password.text, userName.text);
+                      //  userName.text = "";
+                      //  email.text = "";
+                      //  password.text = "";
+                      //  confirmPassword.text = "";
                       Navigator.pop(context);
                     } catch (e) {
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
